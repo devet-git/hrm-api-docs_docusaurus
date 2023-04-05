@@ -1,0 +1,2668 @@
+{
+	"openapi": "3.0.1",
+	"info": {
+		"title": "HRM API",
+		"description": "Need a Jwt key for make request"
+	},
+	"servers": [
+		{
+			"url": "https://hrm-api.herokuapp.com",
+			"description": "Generated API url"
+		}
+	],
+	"tags": [
+		{
+			"name": "Employee",
+			"description": "The employee API"
+		},
+		{
+			"name": "Insurance",
+			"description": "The insurance API"
+		},
+		{
+			"name": "Contract",
+			"description": "The contract API"
+		},
+		{
+			"name": "Department",
+			"description": "The department API"
+		},
+		{
+			"name": "File",
+			"description": "The file API"
+		},
+		{
+			"name": "Authentication",
+			"description": "The authentication API"
+		},
+		{
+			"name": "Attendance",
+			"description": "The attendance API"
+		},
+		{
+			"name": "Mail",
+			"description": "The mail API"
+		},
+		{
+			"name": "User",
+			"description": "The user API"
+		},
+		{
+			"name": "OCR",
+			"description": "The OCR API"
+		},
+		{
+			"name": "Salary",
+			"description": "The salary API"
+		},
+		{
+			"name": "Position",
+			"description": "The Position API"
+		}
+	],
+	"paths": {
+		"/api/v1/users/{id}": {
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "Get user by id",
+				"operationId": "getUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"User"
+				],
+				"summary": "Update user by id",
+				"operationId": "updateUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserAddingDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"User"
+				],
+				"summary": "Delete user by id",
+				"operationId": "deleteUser",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/salaries/{id}": {
+			"get": {
+				"tags": [
+					"Salary"
+				],
+				"summary": "Get a Salary by id",
+				"operationId": "getSalaryById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Salary"
+				],
+				"summary": "Update Salary",
+				"operationId": "updateById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SalaryUpdateRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Salary"
+				],
+				"summary": "Delete Salary",
+				"operationId": "deleteById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/positions/{id}": {
+			"get": {
+				"tags": [
+					"Position"
+				],
+				"summary": "Get a position by id",
+				"operationId": "getPositionById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Position"
+				],
+				"summary": "Update position",
+				"operationId": "updateById_1",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/PositionRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Position"
+				],
+				"summary": "Delete position",
+				"operationId": "deleteById_1",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/insurances/{id}": {
+			"get": {
+				"tags": [
+					"Insurance"
+				],
+				"summary": "Get a insurance by id",
+				"operationId": "getInsuranceById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Insurance"
+				],
+				"summary": "Update insurance",
+				"operationId": "updateById_2",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/InsuranceUpdateRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Insurance"
+				],
+				"summary": "Delete insurance",
+				"operationId": "deleteById_2",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/employees/{id}": {
+			"get": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Get employee by id",
+				"operationId": "getEmployeeById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Update employee by id",
+				"operationId": "updateEmployee",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EmployeeRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Delete employee by id",
+				"operationId": "deleteEmployee",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/departments/{id}": {
+			"get": {
+				"tags": [
+					"Department"
+				],
+				"summary": "Get a department by id",
+				"operationId": "getDepartmentById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Department"
+				],
+				"summary": "Update department",
+				"operationId": "updateById_3",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DepartmentRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Department"
+				],
+				"summary": "Delete department",
+				"operationId": "deleteById_4",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/contracts/{id}": {
+			"get": {
+				"tags": [
+					"Contract"
+				],
+				"summary": "Get a contract by id",
+				"operationId": "getContractById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"put": {
+				"tags": [
+					"Contract"
+				],
+				"summary": "Update contract",
+				"operationId": "updateById_4",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ContractUpdateRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"Contract"
+				],
+				"summary": "Delete contract",
+				"operationId": "deleteById_5",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/attendances/{id}": {
+			"put": {
+				"tags": [
+					"Attendance"
+				],
+				"summary": "Update attendance",
+				"operationId": "update",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AttendanceRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/users": {
+			"get": {
+				"tags": [
+					"User"
+				],
+				"summary": "List all users",
+				"operationId": "getAllUser",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"User"
+				],
+				"summary": "Add user",
+				"operationId": "addUser",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UserAddingDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/users/change-password": {
+			"post": {
+				"tags": [
+					"User"
+				],
+				"summary": "Change password",
+				"operationId": "changePassword",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ChangePasswordRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/salaries": {
+			"get": {
+				"tags": [
+					"Salary"
+				],
+				"summary": "Get list of Salarys",
+				"operationId": "getAllSalary",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Salary"
+				],
+				"summary": "Add Salary",
+				"operationId": "addSalary",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SalaryAddRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/positions": {
+			"get": {
+				"tags": [
+					"Position"
+				],
+				"summary": "Get list of position",
+				"operationId": "getAllDepartment",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Position"
+				],
+				"summary": "Add position",
+				"operationId": "addPosition",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/PositionRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/orc/image": {
+			"post": {
+				"tags": [
+					"OCR"
+				],
+				"summary": "Generate text from image",
+				"operationId": "genTextFromImage",
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"required": [
+									"file"
+								],
+								"type": "object",
+								"properties": {
+									"file": {
+										"type": "string",
+										"format": "binary"
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/mails": {
+			"post": {
+				"tags": [
+					"Mail"
+				],
+				"summary": "Send email",
+				"operationId": "sendWithAttachment",
+				"parameters": [
+					{
+						"name": "emailAddress",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					},
+					{
+						"name": "subject",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "text",
+						"in": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"type": "object",
+								"properties": {
+									"files": {
+										"type": "array",
+										"items": {
+											"type": "string",
+											"format": "binary"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/insurances": {
+			"get": {
+				"tags": [
+					"Insurance"
+				],
+				"summary": "Get list of insurances",
+				"operationId": "getAllInsurance",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Insurance"
+				],
+				"summary": "Add insurance",
+				"operationId": "addInsurance",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/InsuranceAddRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Get list of files",
+				"operationId": "getAllFileByUser",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"File"
+				],
+				"summary": "Upload multiple file",
+				"operationId": "uploadMultipleFile",
+				"requestBody": {
+					"content": {
+						"multipart/form-data": {
+							"schema": {
+								"required": [
+									"files"
+								],
+								"type": "object",
+								"properties": {
+									"files": {
+										"type": "array",
+										"items": {
+											"type": "string",
+											"format": "binary"
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/employees": {
+			"get": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "List all employees",
+				"operationId": "getAllEmployee",
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Add employee",
+				"operationId": "addEmployee",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/EmployeeRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/departments": {
+			"get": {
+				"tags": [
+					"Department"
+				],
+				"summary": "Get list of departments",
+				"operationId": "getAllDepartment_1",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Department"
+				],
+				"summary": "Add department",
+				"operationId": "addDepartment",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DepartmentRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/contracts": {
+			"get": {
+				"tags": [
+					"Contract"
+				],
+				"summary": "Get list of contracts",
+				"operationId": "getAllContract",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"post": {
+				"tags": [
+					"Contract"
+				],
+				"summary": "Add contract",
+				"operationId": "addContract",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ContractAddRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/auth/register": {
+			"post": {
+				"tags": [
+					"Authentication"
+				],
+				"summary": "Register",
+				"operationId": "register",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RegisterRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/auth/login": {
+			"post": {
+				"tags": [
+					"Authentication"
+				],
+				"summary": "Login",
+				"operationId": "login",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AuthenticationRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"/api/v1/attendances": {
+			"post": {
+				"tags": [
+					"Attendance"
+				],
+				"summary": "Add attendance",
+				"operationId": "addAttendance",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AttendanceRequestDto"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/{id}": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Get a file by id",
+				"operationId": "getFileById",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			},
+			"delete": {
+				"tags": [
+					"File"
+				],
+				"summary": "Delete a file by id",
+				"operationId": "deleteById_3",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/pdf/{id}": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Show pdf by id",
+				"operationId": "showPdf",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/images/{id}": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Show image by id",
+				"operationId": "showImage",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/DataResponseDto"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/download/{id}": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Download a file",
+				"operationId": "downloadFile",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/data/{id}": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Get file's data by id",
+				"operationId": "getFileData",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"description": "File id",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/files/admin": {
+			"get": {
+				"tags": [
+					"File"
+				],
+				"summary": "Get list of files(ADMIN)",
+				"operationId": "getAllFileAdmin",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/employees/export": {
+			"get": {
+				"tags": [
+					"Employee"
+				],
+				"summary": "Export employees data to excel",
+				"operationId": "exportToExcel",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				},
+				"security": [
+					{
+						"bearer-key": []
+					}
+				]
+			}
+		},
+		"/api/v1/auth/logout": {
+			"get": {
+				"tags": [
+					"Authentication"
+				],
+				"operationId": "logout",
+				"responses": {
+					"200": {
+						"description": "OK",
+						"content": {
+							"*/*": {
+								"schema": {
+									"type": "object"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"DataResponseDto": {
+				"type": "object",
+				"properties": {
+					"timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"statusCode": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"message": {
+						"type": "string"
+					},
+					"errors": {
+						"type": "object"
+					},
+					"data": {
+						"type": "object"
+					}
+				}
+			},
+			"UserAddingDto": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "uuid"
+					},
+					"email": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string",
+						"enum": [
+							"USER",
+							"ADMIN",
+							"EMPLOYEE",
+							"COMPANY"
+						]
+					},
+					"username": {
+						"type": "string"
+					},
+					"state": {
+						"type": "string",
+						"enum": [
+							"Active",
+							"Inactive",
+							"Locked"
+						]
+					},
+					"create_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"update_date": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"password": {
+						"type": "string"
+					}
+				}
+			},
+			"SalaryUpdateRequestDto": {
+				"required": [
+					"endDate",
+					"salary",
+					"startDate"
+				],
+				"type": "object",
+				"properties": {
+					"salary": {
+						"type": "number"
+					},
+					"bonus": {
+						"type": "number"
+					},
+					"allowance": {
+						"type": "number"
+					},
+					"startDate": {
+						"type": "string"
+					},
+					"endDate": {
+						"type": "string"
+					}
+				}
+			},
+			"PositionRequestDto": {
+				"required": [
+					"level",
+					"name"
+				],
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"level": {
+						"type": "string",
+						"enum": [
+							"LEVEL0",
+							"LEVEL1",
+							"LEVEL2",
+							"LEVEL3"
+						]
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"InsuranceUpdateRequestDto": {
+				"type": "object",
+				"properties": {
+					"number": {
+						"type": "string"
+					},
+					"issuedDate": {
+						"type": "string"
+					},
+					"issuedPlace": {
+						"type": "string"
+					}
+				}
+			},
+			"EmployeeRequestDto": {
+				"required": [
+					"address",
+					"departmentId",
+					"dob",
+					"email",
+					"firstName",
+					"gender",
+					"lastName",
+					"positionId"
+				],
+				"type": "object",
+				"properties": {
+					"firstName": {
+						"type": "string"
+					},
+					"lastName": {
+						"type": "string"
+					},
+					"gender": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"address": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"dob": {
+						"type": "string"
+					},
+					"positionId": {
+						"type": "string",
+						"format": "uuid"
+					},
+					"departmentId": {
+						"type": "string",
+						"format": "uuid"
+					}
+				}
+			},
+			"DepartmentRequestDto": {
+				"required": [
+					"name"
+				],
+				"type": "object",
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					}
+				}
+			},
+			"ContractUpdateRequestDto": {
+				"type": "object",
+				"properties": {
+					"basicSalary": {
+						"type": "number"
+					},
+					"signDate": {
+						"type": "string"
+					},
+					"expireDate": {
+						"type": "string"
+					},
+					"workingTime": {
+						"type": "string"
+					}
+				}
+			},
+			"AttendanceRequestDto": {
+				"type": "object",
+				"properties": {
+					"note": {
+						"type": "string"
+					}
+				}
+			},
+			"ChangePasswordRequestDto": {
+				"required": [
+					"currentPassword",
+					"newPassword"
+				],
+				"type": "object",
+				"properties": {
+					"currentPassword": {
+						"pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$#!%*?&])[A-Za-z\\d@#$!%*?&]{8,}$",
+						"type": "string"
+					},
+					"newPassword": {
+						"pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$#!%*?&])[A-Za-z\\d@#$!%*?&]{8,}$",
+						"type": "string"
+					}
+				}
+			},
+			"SalaryAddRequestDto": {
+				"required": [
+					"employeeId",
+					"endDate",
+					"salary",
+					"startDate"
+				],
+				"type": "object",
+				"properties": {
+					"salary": {
+						"type": "number"
+					},
+					"bonus": {
+						"type": "number"
+					},
+					"allowance": {
+						"type": "number"
+					},
+					"startDate": {
+						"type": "string"
+					},
+					"endDate": {
+						"type": "string"
+					},
+					"employeeId": {
+						"type": "string",
+						"format": "uuid"
+					}
+				}
+			},
+			"InsuranceAddRequestDto": {
+				"required": [
+					"employeeId"
+				],
+				"type": "object",
+				"properties": {
+					"number": {
+						"type": "string"
+					},
+					"issuedDate": {
+						"type": "string"
+					},
+					"issuedPlace": {
+						"type": "string"
+					},
+					"employeeId": {
+						"type": "string",
+						"format": "uuid"
+					}
+				}
+			},
+			"ContractAddRequestDto": {
+				"required": [
+					"employeeId"
+				],
+				"type": "object",
+				"properties": {
+					"basicSalary": {
+						"type": "number"
+					},
+					"signDate": {
+						"type": "string"
+					},
+					"expireDate": {
+						"type": "string"
+					},
+					"workingTime": {
+						"type": "string"
+					},
+					"employeeId": {
+						"type": "string",
+						"format": "uuid"
+					}
+				}
+			},
+			"RegisterRequestDto": {
+				"required": [
+					"email",
+					"password",
+					"username"
+				],
+				"type": "object",
+				"properties": {
+					"username": {
+						"maxLength": 2147483647,
+						"minLength": 5,
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$#!%*?&])[A-Za-z\\d@#$!%*?&]{8,}$",
+						"type": "string"
+					}
+				}
+			},
+			"AuthenticationRequestDto": {
+				"required": [
+					"email",
+					"password"
+				],
+				"type": "object",
+				"properties": {
+					"email": {
+						"type": "string"
+					},
+					"password": {
+						"pattern": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$#!%*?&])[A-Za-z\\d@#$!%*?&]{8,}$",
+						"type": "string"
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"bearer-key": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	}
+}
